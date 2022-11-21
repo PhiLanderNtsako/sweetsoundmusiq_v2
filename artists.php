@@ -1,4 +1,5 @@
 <?php
+    include 'inc/top-cache.php';
     include 'inc/config.php';
 ?>
 <!DOCTYPE html>
@@ -39,9 +40,9 @@
 
                 while($row = mysqli_fetch_array($query_musiq)){
             ?>
-            <a href="http://localhost/musiq-local/artist-single.php?artist=<?php echo $row['artist_name_slug']?>">
+            <a href="https://www.sweetsound.co.za/musiq/artist-single.php?artist=<?php echo $row['artist_name_slug']?>">
                 <div class="music-item">
-                    <img class="cover-art" src="http://localhost/musiq-local/images/artists_images/<?php echo 'artist.jpg'//$row['artist_image'] ?>" alt="">
+                    <img class="cover-art" src="https://files.sweetsound.co.za/musiq/images/artists_images/<?php echo 'artist.jpg'//$row['artist_image'] ?>" alt="">
                     <div class="artist-info">
                         <p><?php echo $row['artist_name']?></p>
                     </div>
@@ -79,5 +80,7 @@
     </script>
 
 </body>
-
 </html>
+<?php
+    include 'inc/bottom-cache.php';
+?>

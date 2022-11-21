@@ -1,5 +1,5 @@
  <?php
-    // include 'inc/top-cache.php';
+    include 'inc/top-cache.php';
     include 'inc/config.php';
 
    $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -84,7 +84,7 @@
     <meta property="og:title" content="<?php echo $row2['artist_name'].' - '.$row2['musiq_title'] ?>">
     <meta property="og:type" content="website">
     <title><?php echo $row2['artist_name'].' - '.$row2['musiq_title'] ?></title>
-    <link rel="stylesheet" href="http://localhost/musiq-local/css/style.css">
+    <link rel="stylesheet" href="https://www.sweetsound.co.za/musiq/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/brands.min.css">
 </head>
@@ -143,7 +143,7 @@
                             ?>
                     </ul>
                 </div>
-                <img id="swap" src="http://localhost/musiq-local/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
+                <img id="swap" src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
                 <h2><?php echo $data[0] ?></h2>
                 <h3><?php echo $row['artist_name'] ?></h3>
                 <?php
@@ -217,7 +217,7 @@
                 <?php if(!empty($row['link_genius_lyrics'])){ ?>
                 <a href="<?php echo $row['link_genius_lyrics'] ?>">
                     <div class="musiq-link-item">
-                        <img src="http://localhost/musiq-local/img/icons/genius.png" alt="">
+                        <img src="https://www.sweetsound.co.za/musiq/img/icons/genius.png" alt="">
                         <h2> Lyrics</h2>
                     </div>
                 <a/>
@@ -225,7 +225,7 @@
                 <?php if(!empty($row['link_spotify'])){ ?>
                 <a href="<?php echo $row['link_spotify'] ?>">
                     <div class="musiq-link-item">
-                        <img src="http://localhost/musiq-local/img/icons/spotify.png" alt="">
+                        <img src="https://www.sweetsound.co.za/musiq/img/icons/spotify.png" alt="">
                         <h2> Play</h2>
                     </div>
                 <a/>
@@ -233,7 +233,7 @@
                 <?php if(!empty($row['link_youtube'])){ ?>
                 <a href="<?php echo $row['link_youtube'] ?>">
                     <div class="musiq-link-item">
-                        <img src="http://localhost/musiq-local/img/icons/youtube.png" alt="">
+                        <img src="https://www.sweetsound.co.za/musiq/img/icons/youtube.png" alt="">
                         <h2> Watch</h2>
                     </div>
                 <a/>
@@ -241,7 +241,7 @@
                 <?php if(!empty($row['link_applemusic'])){ ?>
                 <a href="<?php echo $row['link_applemusic'] ?>">
                     <div class="musiq-link-item">
-                        <img src="http://localhost/musiq-local/img/icons/apple-music.png" alt="">
+                        <img src="https://www.sweetsound.co.za/musiq/img/icons/apple-music.png" alt="">
                         <h2> Play</h2>
                     </div>
                 <a/>
@@ -249,7 +249,7 @@
                 <?php if(!empty($row['link_youtubemusic'])){ ?>
                 <a href="<?php echo $row['link_youtubemusic'] ?>">
                     <div class="musiq-link-item">
-                        <img src="http://localhost/musiq-local/img/icons/youtube-music.png" alt="">
+                        <img src="https://www.sweetsound.co.za/musiq/img/icons/youtube-music.png" alt="">
                         <h2> Play</h2>
                     </div>
                 <a/>
@@ -257,7 +257,7 @@
                 <?php if(!empty($row['link_amazonmusic'])){ ?>
                 <a href="<?php echo $row['link_amazonmusic'] ?>">
                     <div class="musiq-link-item">
-                        <img src="http://localhost/musiq-local/img/icons/amazon-music.png" alt="">
+                        <img src="https://www.sweetsound.co.za/musiq/img/icons/amazon-music.png" alt="">
                         <h2> Play</h2>
                     </div>
                 <a/>
@@ -265,7 +265,7 @@
                 <?php if(!empty($row['link_deezer'])){ ?>
                 <a href="<?php echo $row['link_deezer'] ?>">
                     <div class="musiq-link-item">
-                        <img src="http://localhost/musiq-local/img/icons/deezer.png" alt="">
+                        <img src="https://www.sweetsound.co.za/musiq/img/icons/deezer.png" alt="">
                         <h2> Play</h2>
                     </div>
                 <a/>
@@ -273,7 +273,7 @@
                 <?php if(!empty($row['link_audiomack'])){ ?>
                 <a href="<?php echo $row['link_audiomack'] ?>">
                     <div class="musiq-link-item">
-                        <img src="http://localhost/musiq-local/img/icons/audiomack.png" alt="">
+                        <img src="https://www.sweetsound.co.za/musiq/img/icons/audiomack.png" alt="">
                         <h2> Play</h2>
                     </div>
                 <a/>
@@ -281,7 +281,7 @@
                 <?php if(!empty($row['link_itunes'])){ ?>
                 <a href="<?php echo $row['link_itunes'] ?>">
                     <div class="musiq-link-item">
-                        <img src="http://localhost/musiq-local/img/icons/itunes.png" alt="">
+                        <img src="https://www.sweetsound.co.za/musiq/img/icons/itunes.png" alt="">
                         <h2> Buy</h2>
                     </div>
                 <a/>
@@ -353,12 +353,12 @@
         if(test === 'Album'){
             var track_list = [];
             for (var song of songFile){
-                track_list.push({ path: 'http://localhost/musiq-local/songs/singles/'+song });        
+                track_list.push({ path: 'https://files.sweetsound.co.za/musiq/songs/singles/'+song });        
             }
         }
         if(test === 'Single' || test === 'Album-Track'){
             var track_list = [{
-                path: 'http://localhost/musiq-local/songs/singles/'+songFile
+                path: 'https://files.sweetsound.co.za/musiq/songs/singles/'+songFile
             },];
         }
 
@@ -469,7 +469,7 @@
             download.addEventListener("click", () => {
 
             let element = document.createElement("a");
-            element.href = "http://localhost/musiq-local/songs/albums/"+album_file;
+            element.href = "https://files.sweetsound.co.za/musiq/songs/albums/"+album_file;
             element.download = album_file;
 
             document.documentElement.appendChild(element);
@@ -493,7 +493,7 @@
             download.addEventListener("click", () => {
 
             let element = document.createElement("a");
-            element.href = "http://localhost/musiq-local/songs/singles/"+musiq_file;
+            element.href = "https://files.sweetsound.co.za/musiq/songs/singles/"+musiq_file;
             element.download = musiq_file;
 
             document.documentElement.appendChild(element);
@@ -512,3 +512,6 @@
     </script>
 </body>
 </html>
+<?php
+    include 'inc/bottom-cache.php';
+?>

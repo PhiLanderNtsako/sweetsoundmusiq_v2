@@ -1,5 +1,5 @@
 <?php
-    // include 'inc/top-cache.php';
+    include 'inc/top-cache.php';
     include 'inc/config.php';
 
     if(!empty($_GET['artist'])){
@@ -41,7 +41,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta property="og:url" content="https://www.sweetsound.co.za/musiq/<?php echo $row2['artist_name_slug']?>">
-  	<meta property="og:image:secure" content="https://www.sweetsound.co.za/musiq/images/artists_images/<?php echo $row2['artist_image'] ?>">
+  	<meta property="og:image:secure" content="https://files.sweetsound.co.za/musiq/images/artists_images/<?php echo $row2['artist_image'] ?>">
   	<meta name="description" content="Learn more about <?php echo $row2['artist_name'] ?>, who is a <?php echo $row2['artist_bio'] ?>. READ Full bio in website.">
   	<meta property="og:title" content="Sweet Sound Musiq Artist - <?php echo $row2['artist_name']?>">
   	<meta property="og:type" content="website">
@@ -49,10 +49,10 @@
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.png">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="http://localhost/musiq-local/css/artist-link.css">
+    <link rel="stylesheet" href="https://www.sweetsound.co.za/musiq/css/artist-link.css">
     <link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
-<body style="background-image: linear-gradient(rgba(22, 22, 22, 0.5), rgba(22, 22, 22, 0.5)), url('http://localhost/musiq-local/images/artists_images/<?php echo 'artist.jpg' //$row2['artist_image'] ?>')">
+<body style="background-image: linear-gradient(rgba(22, 22, 22, 0.5), rgba(22, 22, 22, 0.5)), url('https://files.sweetsound.co.za/musiq/images/artists_images/<?php echo 'artist.jpg' //$row2['artist_image'] ?>')">
     <?php
         if(!empty($artist_id)){
 
@@ -62,7 +62,7 @@
     ?>
             <div class="container">
                 <div class="preview-img">
-                    <img src="http://localhost/musiq-local/images/artists_images/<?php echo 'artist.jpg' //$rows['artist_image'] ?>">
+                    <img src="https://files.sweetsound.co.za/musiq/images/artists_images/<?php echo 'artist.jpg' //$rows['artist_image'] ?>">
                 </div>
                 <div>
                     <div class="details">
@@ -81,11 +81,11 @@
 
                         while($row=mysqli_fetch_assoc($result_set)){
                     ?>
-                        <a href="http://localhost/musiq-local/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>" class="link-option">
+                        <a href="https://www.sweetsound.co.za/musiq/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>" class="link-option">
                             <div class="link-option-row">
                                 <div class="link-option-title">
                                     <span>
-                                        <img id="artist-img" src="http://localhost/musiq-local/images/musiq_images/<?php echo $row['musiq_coverart'] ?>">
+                                        <img id="artist-img" src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>">
                                     </span>
                                 </div>
                                 <div id="link-option-action">
@@ -106,5 +106,5 @@
 </body>
 </html>
 <?php
-    // include 'inc/bottom-cache.php';
+    include 'inc/bottom-cache.php';
 ?>

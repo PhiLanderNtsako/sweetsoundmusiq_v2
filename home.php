@@ -1,4 +1,5 @@
 <?php
+    include 'inc/top-cache.php';
     include 'inc/config.php';
 ?>
 <!DOCTYPE html>
@@ -34,9 +35,9 @@
 
                 while($row = mysqli_fetch_array($query_musiq)){
             ?>
-            <a href="http://localhost/musiq-local/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
+            <a href="https://www.sweetsound.co.za/musiq/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
                 <div class="cover-art-lg slide-in">
-                    <img id="slider" src="http://localhost/musiq-local/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
+                    <img id="slider" src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
                 </div>
                 <div class="musiq-info slide-in">
                     <h3><?php echo $row['artist_name']?></h3>
@@ -76,9 +77,9 @@
                         $data = preg_split("/[()+]/", $row['musiq_title'], -1, PREG_SPLIT_NO_EMPTY);
                         
                 ?>
-                    <a href="http://localhost/musiq-local/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
+                    <a href="https://www.sweetsound.co.za/musiq/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
                         <div class="albums-item">
-                            <img class="cover-art" src="http://localhost/musiq-local/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
+                            <img class="cover-art" src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
                             <div class="albums-item-info">
                                 <p><?php echo $row['artist_name'] ?></p>
                                 <p><?php echo $data[0] ?></p>
@@ -108,8 +109,8 @@
             ?>
             <div class="musiq-item border-bottom">
                 <div class="musiq-details">
-                    <a href="http://localhost/musiq-local/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
-                        <img src="http://localhost/musiq-local/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
+                    <a href="https://www.sweetsound.co.za/musiq/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
+                        <img src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
                     </a>
                     <div class="musiq-details-info">
                         <div class="musiq-title">
@@ -124,7 +125,7 @@
                     </div>
                 </div>
                 <div class="view-btn">
-                    <a href="http://localhost/musiq-local/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>"><i class="fa fa-download"></i></a>
+                    <a href="https://www.sweetsound.co.za/musiq/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>"><i class="fa fa-download"></i></a>
                 </div>
             </div>
             <?php } ?>
@@ -161,3 +162,6 @@
     </script>
 </body>
 </html>
+<?php
+    include 'inc/bottom-cache.php';
+?>

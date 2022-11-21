@@ -1,4 +1,5 @@
 <?php
+    include 'inc/top-cache.php';
     include 'inc/config.php';
 ?>
 <!DOCTYPE html>
@@ -39,7 +40,7 @@
         <div class="musiq-item border-bottom">
             <div class="musiq-details">
                 <a href="<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
-                    <img src="images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
+                    <img src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
                 </a>
                 <div class="musiq-details-info">
                     <div class="musiq-title">
@@ -87,5 +88,7 @@
     </script>
 
 </body>
-
 </html>
+<?php
+    include 'inc/bottom-cache.php';
+?>
