@@ -42,7 +42,7 @@
             ?>
             <a href="https://www.sweetsound.co.za/musiq/artist-single.php?artist=<?php echo $row['artist_name_slug']?>">
                 <div class="music-item">
-                    <img class="cover-art" src="https://files.sweetsound.co.za/musiq/images/artists_images/<?php echo 'artist.jpg'//$row['artist_image'] ?>" alt="">
+                    <img class="cover-art" src="https://files.sweetsound.co.za/images/artists_images/<?php echo 'artist.jpg'//$row['artist_image'] ?>" alt="">
                     <div class="artist-info">
                         <p><?php echo $row['artist_name']?></p>
                     </div>

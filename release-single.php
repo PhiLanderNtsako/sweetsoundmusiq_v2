@@ -143,7 +143,7 @@
                             ?>
                     </ul>
                 </div>
-                <img id="swap" src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
+                <img id="swap" src="https://files.sweetsound.co.za/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
                 <h2><?php echo $data[0] ?></h2>
                 <h3><?php echo $row['artist_name'] ?></h3>
                 <?php

@@ -37,7 +37,7 @@
             ?>
             <a href="https://www.sweetsound.co.za/musiq/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
                 <div class="cover-art-lg slide-in">
-                    <img id="slider" src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
+                    <img id="slider" src="https://files.sweetsound.co.za/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
                 </div>
                 <div class="musiq-info slide-in">
                     <h3><?php echo $row['artist_name']?></h3>
@@ -79,7 +79,7 @@
                 ?>
                     <a href="https://www.sweetsound.co.za/musiq/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
                         <div class="albums-item">
-                            <img class="cover-art" src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
+                            <img class="cover-art" src="https://files.sweetsound.co.za/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
                             <div class="albums-item-info">
                                 <p><?php echo $row['artist_name'] ?></p>
                                 <p><?php echo $data[0] ?></p>
@@ -110,7 +110,7 @@
             <div class="musiq-item border-bottom">
                 <div class="musiq-details">
                     <a href="https://www.sweetsound.co.za/musiq/<?php echo $row['artist_name_slug'].'/'.$row['musiq_title_slug'] ?>">
-                        <img src="https://files.sweetsound.co.za/musiq/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
+                        <img src="https://files.sweetsound.co.za/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
                     </a>
                     <div class="musiq-details-info">
                         <div class="musiq-title">
