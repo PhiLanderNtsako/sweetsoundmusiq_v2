@@ -173,7 +173,7 @@
                 </div>
                 <div onclick="" id="prev"  onclick="prevTrack()" class="player-btn"><i class="fa fa-step-backward"></i></div>
                 <div id="play-pause" onclick="playpauseTrack()" class="player-btn"><i class="fa fa-play-circle fa-2x"></i></div>
-                <audio id="audio" src="songs/singles/<?php echo $row['musiq_file'] ?>" autoplay="false" ></audio>
+                <audio id="audio" src="https://files.sweetsound.co.za/musiq/singles/<?php echo $row['musiq_file'] ?>" autoplay="false" ></audio>
                 <div id="next" onclick="nextTrack()" class="player-btn"><i class="fa fa-step-forward"></i></div>
                 <div id="download" class="player-btn"><i class="fa fa-download"></i></div>
 
