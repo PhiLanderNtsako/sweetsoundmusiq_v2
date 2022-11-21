@@ -353,12 +353,12 @@
         if(test === 'Album'){
             var track_list = [];
             for (var song of songFile){
-                track_list.push({ path: 'https://files.sweetsound.co.za/musiq/songs/singles/'+song });        
+                track_list.push({ path: 'https://files.sweetsound.co.za/musiq/singles/'+song });        
             }
         }
         if(test === 'Single' || test === 'Album-Track'){
             var track_list = [{
-                path: 'https://files.sweetsound.co.za/musiq/songs/singles/'+songFile
+                path: 'https://files.sweetsound.co.za/musiq/singles/'+songFile
             },];
         }
 
@@ -469,7 +469,7 @@
             download.addEventListener("click", () => {
 
             let element = document.createElement("a");
-            element.href = "https://files.sweetsound.co.za/musiq/songs/albums/"+album_file;
+            element.href = "https://files.sweetsound.co.za/musiq/albums/"+album_file;
             element.download = album_file;
 
             document.documentElement.appendChild(element);
@@ -493,7 +493,7 @@
             download.addEventListener("click", () => {
 
             let element = document.createElement("a");
-            element.href = "https://files.sweetsound.co.za/musiq/songs/singles/"+musiq_file;
+            element.href = "https://files.sweetsound.co.za/musiq/singles/"+musiq_file;
             element.download = musiq_file;
 
             document.documentElement.appendChild(element);
