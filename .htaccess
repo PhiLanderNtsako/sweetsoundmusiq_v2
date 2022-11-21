@@ -1,0 +1,18 @@
+RewriteEngine On
+
+#RewriteCond %{HTTPS} !on
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^home home.php [NC,L]
+
+RewriteRule ^# index.php [NC,L]
+
+RewriteRule ^artists artists.php [NC,L]
+
+RewriteRule ^releases releases.php[NC,L]
+
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)$ release-single.php?artist=$1&title=$2 [NC,L]
+
+RewriteRule ^artist/([A-Za-z0-9-]+)$ artist-single.php?artist=$1 [NC,L]
