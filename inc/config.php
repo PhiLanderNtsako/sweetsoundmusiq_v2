@@ -2,11 +2,11 @@
 
 	$dbhost = "localhost";
 
-	$dbuser = "root";
+	$dbuser = "sweetsound_musiq_user";
 
-	$dbpass = "";
+	$dbpass = "SSFamily@17/22";
 
-	$dbname = "sweet_sound_musiq";
+	$dbname = "sweetsound_musiq_db";
 
 	$conn = mysqli_connect($dbhost,$dbuser,$dbpass) or die('cannot connect to the server'); 
 
