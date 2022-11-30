@@ -1,13 +1,11 @@
 RewriteEngine On
 
-RewriteCond %{HTTPS} !on
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+#RewriteCond %{HTTPS} !on
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^home home.php [NC,L]
-
-RewriteRule ^# index.php [NC,L]
 
 RewriteRule ^artists artists.php [NC,L]
 

@@ -1,5 +1,5 @@
- <?php
-    include 'inc/top-cache.php';
+<?php
+    // include 'inc/top-cache.php';
     include 'inc/config.php';
 
    $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -84,9 +84,9 @@
     <meta property="og:title" content="<?php echo $row2['artist_name'].' - '.$row2['musiq_title'] ?>">
     <meta property="og:type" content="website">
     <title><?php echo $row2['artist_name'].' - '.$row2['musiq_title'] ?></title>
-    <link rel="stylesheet" href="https://www.sweetsound.co.za/musiq/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/brands.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css">
 </head>
 <body>
 <?php
@@ -101,7 +101,7 @@
                 $result_set = mysqli_query($conn, $query_musiq);
                 $row123=mysqli_fetch_assoc($result_set);
 
-                if($row123['musiq_type'] == 'Album-Track' || $row123['musiq_type'] == 'Album'){
+                if($row123['musiq_type'] == 'Album-Track'){
 
                     $query_musiq = "SELECT * FROM (album_single INNER JOIN musiq ON album_single.musiq_id = musiq.musiq_id) INNER JOIN artist ON musiq.artist_id = artist.artist_id WHERE musiq.musiq_id = '$musiq_id'";
                     $result_set = mysqli_query($conn, $query_musiq);
@@ -116,6 +116,9 @@
         ?>
         <div class="song-content">
             <div class="song-details">
+                <?php
+                if($row['musiq_type'] == 'Album'){
+                ?>
                 <div class="album-singles off">
                     <ul class="scroll">
                     <?php
@@ -134,7 +137,7 @@
                                 <div class="album-track border-bottom">
                                     <?php 
                                         $s = $i+1;
-                                        echo '<a href="">'.$row_tracks['musiq_title'].'</a>'; ?>
+                                        echo '<a href="https://www.sweetsound.co.za/musiq/'.$row_tracks['artist_name_slug'].'/'.$row_tracks['musiq_title_slug'].'">'.$s.'. '.$row_tracks['musiq_title'].'</a>'; ?>
                                 </div>
                             <?php
                                 $i++;
@@ -143,20 +146,23 @@
                             ?>
                     </ul>
                 </div>
+                <div id="tracklist-btn">
+                    <i class="fa-solid fa-list-check"></i>
+                    <div class="track-length"></div>
+                </div>
+                <?php } ?>
                 <img id="swap" src="https://files.sweetsound.co.za/images/musiq_images/<?php echo $row['musiq_coverart'] ?>" alt="">
-                <h2><?php echo $data[0] ?></h2>
-                <h3><?php echo $row['artist_name'] ?></h3>
-                <?php
-                    if(!empty($data[1])){
-                        echo '<h4>('.$data[1].')</h4>';
-                    }
-                ?>
             </div>
-            <div class="progress-bar">
-                <div class="current-time">00:00</div>
-                <input id="seekSlider" type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
-                <div class="total-duration">00:00</div>
+            <div class="now-playing">
+                <h4><?php echo $row['artist_name'] ?></h4>
+                <h3 class="track-name"></h3>
+                <div class="progress-bar off">
+                    <div class="current-time">00:00</div>
+                    <input id="seekSlider" type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                    <div class="total-duration">00:00</div>
+                </div>
             </div>
+            
             <div class="controls">
                 <div id="like" class="player-btn">
                 <?php
@@ -173,7 +179,6 @@
                 </div>
                 <div onclick="" id="prev"  onclick="prevTrack()" class="player-btn"><i class="fa fa-step-backward"></i></div>
                 <div id="play-pause" onclick="playpauseTrack()" class="player-btn"><i class="fa fa-play-circle fa-2x"></i></div>
-                <audio id="audio" src="https://files.sweetsound.co.za/musiq/singles/<?php echo $row['musiq_file'] ?>" autoplay="false" ></audio>
                 <div id="next" onclick="nextTrack()" class="player-btn"><i class="fa fa-step-forward"></i></div>
                 <div id="download" class="player-btn"><i class="fa fa-download"></i></div>
 
@@ -192,26 +197,6 @@
                     <input type="hidden" name="play" value="play" >
                     <input type="submit" name="submit-play" id="submit-play" value="submit-play" hidden />
                 </form>
-            </div>
-            <div class="progress-bar border-bottom">
-                <?php 
-                    if($row['musiq_type'] == 'Album'){
-                ?>
-                <div id="tracklist-btn" class="player-btn"><i class="fa fa-list"></i></div>
-                <div class="volume-bar">
-                    <i class="fa fa-volume-down"></i>
-                    <input type="range" min="1" max="100" value="100" class="volume_slider" onchange="setVolume()" style="width:150px;">
-                    <i class="fa fa-volume-up"></i>
-                </div>
-                <?php 
-                    }else{
-                ?>
-                <div class="volume-bar">
-                    <i class="fa fa-volume-down"></i>
-                    <input type="range" min="1" max="100" value="100" class="volume_slider" onchange="setVolume()" style="width:200px;">
-                    <i class="fa fa-volume-up"></i>
-                </div>
-                <?php } ?>
             </div>
             <div class="musiq-links">
                 <?php if(!empty($row['link_genius_lyrics'])){ ?>
@@ -308,6 +293,7 @@
                 $songs[] = $row_tracks['musiq_file'];
             }
             echo '<script type="text/javascript"> var songFile = '.json_encode($songs).';</script>';
+            // echo json_encode($songs);
         }
     }
         ?>
@@ -319,6 +305,9 @@
         let playpause_btn = document.querySelector("#play-pause");
         let next_btn = document.querySelector("#next");
         let prev_btn = document.querySelector("#prev");
+        let track_name = document.querySelector(".track-name");
+        let track_len = document.querySelector(".track-length");
+        let song_len = document.querySelector(".song-length");
 
         let seek_slider = document.querySelector(".seek_slider");
         let volume_slider = document.querySelector(".volume_slider");
@@ -353,28 +342,36 @@
         if(test === 'Album'){
             var track_list = [];
             for (var song of songFile){
-                track_list.push({ path: 'https://files.sweetsound.co.za/musiq/singles/'+song });        
+                track_list.push({ 
+                    path: 'https://files.sweetsound.co.za/musiq/singles/'+song,
+                    name: song.split('.mp3')[0]
+                });        
             }
+            track_len.textContent = track_list.length;
+
         }
         if(test === 'Single' || test === 'Album-Track'){
             var track_list = [{
-                path: 'https://files.sweetsound.co.za/musiq/singles/'+songFile
+                path: 'https://files.sweetsound.co.za/musiq/singles/'+songFile,
+                name: songFile.split('.mp3')[0]
             },];
         }
 
         function loadTrack(track_index) {
-            clearInterval(updateTimer);
-            resetValues();
-            curr_track.src = track_list[track_index].path;
-            curr_track.autoplay="";
-            curr_track.muted="";
-            curr_track.playsinline="";
-            
-            curr_track.load();
+                clearInterval(updateTimer);
+                resetValues();
+                curr_track.src = track_list[track_index].path;
+                curr_track.autoplay="";
+                curr_track.muted="";
+                curr_track.playsinline="";
+                
+                curr_track.load();
 
-            updateTimer = setInterval(seekUpdate, 1000);
-            curr_track.addEventListener("ended", nextTrack);
-        }
+                track_name.textContent = track_list[track_index].name;
+
+                updateTimer = setInterval(seekUpdate, 1000);
+                curr_track.addEventListener("ended", nextTrack);
+            }
 
         function resetValues() {
             curr_time.textContent = "00:00";
@@ -386,11 +383,12 @@
         loadTrack(track_index);
 
         function playpauseTrack() {
-        if (!isPlaying){
-            playTrack();
-            // document.createElement('div').classList.add('waveform');
-            // document.getElementById('seekSlider').classList.add('off');
-        }else pauseTrack();
+
+            if (!isPlaying){
+                playTrack();
+                // document.createElement('div').classList.add('waveform');
+                // document.getElementById('seekSlider').classList.add('off');
+            }else pauseTrack();
         }
 
         function playTrack() {
@@ -457,8 +455,8 @@
         const like = document.querySelector("#likeIcon");
         const submitForm = document.querySelector("#submit-form");
         const submitLike = document.querySelector("#submit-like");
+        const album_singles = document.querySelector(".album-singles");
         const tracklist = document.querySelector("#tracklist-btn");
-        const albumSingles = document.querySelector(".album-singles");
         const image = document.querySelector("#swap");
 
         var musiq_file = "<?php echo $row['musiq_file'] ?>";
@@ -478,17 +476,16 @@
 
             submitForm.click();
             
+            });
             tracklist.addEventListener("click", () => {
-            if(albumSingles.classList.contains('off')){
-                albumSingles.classList.remove('off');
-                image.classList.add('off');
-            }else{
-                albumSingles.classList.add('off');
-                image.classList.remove('off');  
-            }
-        });
-            
-        });
+                if(album_singles.classList.contains('off')){
+                    album_singles.classList.remove('off');
+                    image.classList.add('off');
+                }else{
+                    album_singles.classList.add('off');
+                    image.classList.remove('off');  
+                }
+            });
         }else{
             download.addEventListener("click", () => {
 
@@ -512,6 +509,3 @@
     </script>
 </body>
 </html>
-<?php
-    include 'inc/bottom-cache.php';
-?>

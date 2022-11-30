@@ -1,12 +1,13 @@
 <header>
         <nav>
-            <ul class="navbar">
             <div class="logo">
-                <img src="https://www.sweetsound.co.za/musiq/img/core-img/logo.png" alt="">
+                <img src="img/core-img/favicon.png" alt="">
             </div>
-                <li class="nav-link"><a href="https://www.sweetsound.co.za/musiq/home.php"> Home</a></li>
-                <li class="nav-link"><a href="https://www.sweetsound.co.za/musiq/artists.php"> Artists</a></li>
-                <li class="nav-link"><a href="https://www.sweetsound.co.za/musiq/releases.php"> Releases</a></li>
+            <ul class="navbar">
+                <li><a href="home"> Home</a></li>
+                <li><a href="artists"> Artists</a></li>
+                <li><a href="musiq"> Musiq</a></li>
+                <li><a href="videos"> Videos</a></li>
             </ul>
         </nav>
-    </header>
+</header>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Combo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
 
 :root {
   --background: #0B0C10;
@@ -17,7 +17,7 @@
 
 body, html {
   position: relative;
-  font-family: 'Combo', cursive;
+  font-family: 'Rubik Dirt', cursive;
   max-width: 850px;
   padding: auto;
   margin: auto;
@@ -25,7 +25,7 @@ body, html {
 }
 ul li {
   list-style-type: none;
-  margin: .7em;
+  margin: .5em;
 }
 
 a{
@@ -89,24 +89,22 @@ header{
 
 nav{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 0 0.5em;
-
 }
 
 .logo{
-  max-width: 600px;
-  height: 60px;
+  width: 110px;
 }
 
 .logo img{
   height: 60px;
-  width: 100%;
+  width: 60px;
+  padding: 0.5em;
 }
 
-.bottom-nav{
+/* .bottom-nav{
   position: fixed;
   left: 0;
   bottom: 0;
@@ -114,28 +112,27 @@ nav{
   z-index: 5;
   background-color: var(--background);
   text-align: center;
-}
+} */
 
 .navbar{
   display: flex;
   flex: row;
   align-items: center;
-  justify-content: space-between;
 }
 
-.navbar .nav-link {
-  height: 24px;
-  text-align: center;
+.navbar li{
   cursor: pointer;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 100%;
 }
 
-.navbar .nav-link a{
+.navbar li a{
   color: var(--primary);
-  font-size: 1.5em;
-  height: 100%;
 }
 
-.navbar .nav-link:hover a{
+.navbar li:hover a{
   color: var(--secondary);
 }
 
@@ -147,10 +144,14 @@ nav{
   padding: 0 1.6em;
 }
 
+.cover-art-lg{
+  max-height: 250px ;
+}
+
 .cover-art-lg img{
   box-sizing: border-box;
   width: 100%;
-  height: 50%;
+  height: 250px;
   object-fit: contain;
   transform: translateX(-100%);
   -webkit-transform: translateX(-100%);
@@ -165,6 +166,14 @@ nav{
   text-align: center;
   color: #C5C6C7;
   font-size: 1.08em;
+}
+
+.musiq-info h3 {
+  font-size: 1.5em;
+}
+
+.musiq-info h5 {
+  font-size: 1.2em;
 }
 
 .slide-in {
@@ -428,10 +437,30 @@ footer {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+}
+
+#tracklist-btn{
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.4em;
+  bottom: 90%;
+  right: 85%;
+  color: white;
+  background-color: var(--background);
+  padding:  0.05em 0.1em;
+
+  display: flex;
+  align-items: center;
+}
+
+.track-length{
+  font-size: 0.8em;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 .song-details img{
-    margin-bottom: 0.9em;
     height: 100%;
     width: 100%;
     max-width: 450px;
@@ -447,33 +476,35 @@ footer {
   background-color: red;
 }
 
-.album-details img{
-  height: 100%;
-  width: 80px;
-}
-
 .album-singles{
+  height: 360px;
   width: 100%;
-  height: 100%;
   max-width: 450px;
-  margin-bottom: 0.9em;
 }
 
 .scroll{
   color: var(--secondary);
-  height: 314px;
+  /* height: 360px; */
+  height: 100%;
   width: 100%;
   overflow-y: scroll;
 }
 
 .album-track{
   padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background);
+  align-items: baseline;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .album-track a{
   font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
+  color: var(--secondary);
+
 }
 
 .song-details h4,
@@ -524,7 +555,6 @@ footer {
 #play,
 #prev,
 #next {
-  opacity: 0.8;
   transition: opacity .2s;
 }
 
@@ -534,19 +564,13 @@ footer {
   opacity: 1.0;
 }
 
-#tracklist-btn,
-#links-btn{
-  font-size: 2em;
-  cursor: pointer;
-}
-
 .progress-bar {
     width: 90%;
     max-width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--primary);
+    color: var(--background);
 }
 
 .volume-bar{
@@ -561,9 +585,9 @@ footer {
   -moz-appearance: none;
   appearance: none;
   height: 8px;
-  background: var(--secondary);
-  opacity: 0.7;
+  background: var(--background);
   -webkit-transition: .2s;
+  border-radius: 30%;
   transition: opacity .2s;
 }
    
@@ -574,7 +598,7 @@ footer {
   appearance: none;
   width: 15px;
   height: 20px;
-  background: var(--secondary);
+  background: var(--background);
   cursor: pointer;
   border-radius: 50%;
 }
@@ -585,7 +609,7 @@ footer {
 }
    
 .seek_slider {
-  width: 60%;
+  width: 80%;
 }
    
 .volume_slider {
@@ -596,6 +620,7 @@ footer {
 .current-time,
 .total-duration {
   padding: 10px;
+  font-size: 0.8em;
 }
    
 i.fa-volume-down,
@@ -608,6 +633,37 @@ i.fa-pause-circle,
 i.fa-step-forward,
 i.fa-step-backward {
   cursor: pointer;
+}
+
+.album-inf-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  padding: 0 0.5em;
+  color: var(--secondary);
+}
+
+.album-inf-flex span{
+  font-size: 1.5em;
+}
+
+.now-playing{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--secondary);
+  align-items: center;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+  min-height: 100px;
+  max-width: 450px;
+}
+
+.now-playing h4{
+  font-size: 1.5em;
+  margin: 0.2em;
 }
 
 /************ MUSIQ LINKS ********************/
@@ -668,8 +724,6 @@ i.fa-step-backward {
   color: var(--primary);
   border: 2px solid var(--secondary);
 }
-
-
 
 
 .artist-list{
