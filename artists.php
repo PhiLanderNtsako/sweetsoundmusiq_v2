@@ -58,7 +58,7 @@
     <?php
     include 'footer.php';
     ?>
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.js" ></script>
     <script>

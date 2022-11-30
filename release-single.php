@@ -101,7 +101,7 @@
                 $result_set = mysqli_query($conn, $query_musiq);
                 $row123=mysqli_fetch_assoc($result_set);
 
-                if($row123['musiq_type'] == 'Album-Track'){
+                if($row123['musiq_type'] == 'Album-Track' || $row123['musiq_type'] == 'Album'){
 
                     $query_musiq = "SELECT * FROM (album_single INNER JOIN musiq ON album_single.musiq_id = musiq.musiq_id) INNER JOIN artist ON musiq.artist_id = artist.artist_id WHERE musiq.musiq_id = '$musiq_id'";
                     $result_set = mysqli_query($conn, $query_musiq);
